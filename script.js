@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const fileInput = document.getElementById("resume");
+    if (!fileInput) {
+        console.error("File input not found. Make sure the input field exists in the HTML.");
+        return;
+    }
+
     document.getElementById("uploadForm").addEventListener("submit", async (event) => {
         event.preventDefault(); // Prevent default form submission
         
-        const fileInput = document.getElementById("resume");
         const resultDiv = document.getElementById("result");
 
-        if (!fileInput) {
-            console.error("File input not found.");
-            return;
-        }
-        
         if (fileInput.files.length === 0) {
             resultDiv.innerHTML = "<p>Please select a file to upload.</p>";
             return;
