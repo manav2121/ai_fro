@@ -28,9 +28,9 @@ document.getElementById("uploadForm").addEventListener("submit", async (event) =
         if (data.analysis) {
             resultDiv.innerHTML = `
                 <h2>Analysis Result:</h2>
-                <p><strong>Education:</strong> ${data.analysis.education || "Not found"}</p>
-                <p><strong>Experience:</strong> ${data.analysis.experience.length > 0 ? data.analysis.experience.join(", ") : "Not found"}</p>
-                <p><strong>Skills:</strong> ${data.analysis.skills.length > 0 ? data.analysis.skills.join(", ") : "Not found"}</p>
+                <p><strong>Education:</strong> ${data.analysis.education || "Not Found"}</p>
+                <p><strong>Experience:</strong> ${data.analysis.experience.length > 0 ? data.analysis.experience.join(", ") : "Not Found"}</p>
+                <p><strong>Skills:</strong> ${data.analysis.skills.length > 0 ? data.analysis.skills.join(", ") : "Not Found"}</p>
             `;
         } else {
             resultDiv.innerHTML = "<p>No analysis found.</p>";
