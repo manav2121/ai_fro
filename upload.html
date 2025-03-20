@@ -1,13 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Resume Scanner</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>Upload Resume</h2>
-    <form action="/" method="post" enctype="multipart/form-data">
-        <input type="file" name="resume" required>
-        <button type="submit">Upload</button>
-    </form>
+    <h2 class="title">Upload Your Resume</h2>
+    <p class="subtitle">Get instant analysis of your resume</p>
+
+    <div class="upload-box">
+        <form id="uploadForm">
+            <label for="fileInput" class="upload-label">Choose File</label>
+            <input type="file" id="fileInput" name="resume" required>
+            <button type="submit">Upload</button>
+        </form>
+
+        <!-- Progress Bar -->
+        <div id="progressContainer" class="d-none">
+            <div class="progress">
+                <div class="progress-bar" style="width: 0%; height: 10px; background: #2575fc;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Section -->
+    <div id="resultContainer" class="d-none">
+        <h3>Analysis Result:</h3>
+        <ul id="resultList"></ul>
+    </div>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include script.js -->
+    <script src="script.js"></script>
 </body>
 </html>
