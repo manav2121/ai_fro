@@ -5,7 +5,7 @@ $(document).ready(function () {
         let formData = new FormData(this);
         $("#progressContainer").removeClass("d-none");
 
-        // Simulate Progress Animation
+        // Progress Bar Animation
         let progressBar = $(".progress-bar");
         progressBar.css("width", "0%");
         let progress = 0;
@@ -18,7 +18,7 @@ $(document).ready(function () {
 
         // Upload and Analyze Resume
         $.ajax({
-            url: "https://ai-resume-checker-o2jh.onrender.com/upload",  // Change this to your backend URL
+            url: "https://your-backend-url.com/upload", // Change this
             type: "POST",
             data: formData,
             contentType: false,
@@ -27,7 +27,7 @@ $(document).ready(function () {
                 $("#resultContainer").removeClass("d-none");
                 $("#resultList").empty();
 
-                // Display Analysis Results
+                // Display Results
                 $("#resultList").append(`<li>🛠 Skills: ${response.skills_detected.join(", ")}</li>`);
                 $("#resultList").append(`<li>📅 Experience: ${response.experience_level}</li>`);
                 $("#resultList").append(`<li>🔠 Grammar Issues: ${response.grammar_issues.length}</li>`);
