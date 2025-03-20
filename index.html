@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Resume Scanner</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1 class="title">AI Resume Scanner</h1>
-        <p class="subtitle">Upload your resume and let AI analyze it!</p>
+        <header>
+            <h1>📄 AI Resume Scanner</h1>
+            <p>Upload your resume and get instant insights!</p>
+        </header>
 
         <div class="upload-box">
             <form id="uploadForm" enctype="multipart/form-data">
-                <label for="resume" class="upload-label">📄 Choose Resume</label>
+                <label for="resume" class="upload-label">📂 Choose a File</label>
                 <input type="file" id="resume" name="resume" required>
                 <button type="submit" class="upload-btn">🚀 Upload & Analyze</button>
             </form>
@@ -24,12 +27,11 @@
         </div>
 
         <div id="resultContainer" class="result-box d-none">
-            <h3>📊 Analysis Results</h3>
+            <h2>📊 Analysis Results</h2>
             <ul id="resultList"></ul>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
