@@ -6,32 +6,27 @@
     <title>AI Resume Scanner</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 class="title">📄 AI Resume Scanner</h1>
-            <p class="subtitle">Upload your resume and get instant insights!</p>
-        </header>
+    <h1 class="title">AI Resume Scanner</h1>
+    <p class="subtitle">Upload your resume to get insights</p>
 
-        <div class="upload-box">
-            <form id="uploadForm" enctype="multipart/form-data">
-                <label for="resume" class="upload-label">📂 Choose a File</label>
-                <input type="file" id="resume" name="resume" required>
-                <button type="submit" class="upload-btn">🚀 Upload & Analyze</button>
-            </form>
-        </div>
-
-        <div id="progressContainer" class="progress-container d-none">
-            <div class="progress-bar"></div>
-        </div>
-
-        <div id="resultContainer" class="result-box d-none">
-            <h2>📊 Analysis Results</h2>
-            <ul id="resultList"></ul>
-        </div>
+    <div class="upload-box">
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="resume" class="upload-label">Choose a File</label>
+            <input type="file" id="resume" name="resume" required>
+            <button type="submit">Upload</button>
+        </form>
     </div>
 
-    <script src="script.js"></script>
+    <div id="progressContainer" class="progress d-none">
+        <div class="progress-bar"></div>
+    </div>
+
+    <div id="resultContainer" class="d-none">
+        <h2>Analysis Results</h2>
+        <ul id="resultList"></ul>
+    </div>
 </body>
 </html>
