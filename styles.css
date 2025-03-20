@@ -1,14 +1,19 @@
-/* Global Styles */
+/* General Styling */
 body {
     background: linear-gradient(to right, #6a11cb, #2575fc);
     color: #fff;
     font-family: 'Arial', sans-serif;
     text-align: center;
-    margin: 0;
     padding: 20px;
 }
 
-/* Title and Subtitle */
+/* Container */
+.container {
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Titles */
 .title {
     font-size: 2.5rem;
     font-weight: bold;
@@ -28,11 +33,15 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     color: #333;
-    width: 50%;
-    margin: auto;
-    text-align: center;
+    width: 100%;
+    transition: 0.3s ease;
 }
 
+.upload-box:hover {
+    transform: scale(1.02);
+}
+
+/* Upload Button */
 .upload-label {
     display: block;
     background: #2575fc;
@@ -42,99 +51,69 @@ body {
     border-radius: 5px;
     font-size: 18px;
     transition: 0.3s;
-    margin-bottom: 10px;
 }
 
 .upload-label:hover {
     background: #6a11cb;
 }
 
-/* Hide the default file input */
+.upload-btn {
+    background: #6a11cb;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.upload-btn:hover {
+    background: #2575fc;
+}
+
+/* Hide File Input */
 input[type="file"] {
     display: none;
 }
 
-/* Upload Button */
-button {
-    background: #2575fc;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #6a11cb;
-}
-
 /* Progress Bar */
-#progressContainer {
-    margin-top: 20px;
-    display: none;
-}
-
-.progress {
-    height: 10px;
+.progress-container {
+    width: 100%;
     background: #ddd;
+    margin-top: 15px;
     border-radius: 5px;
-    overflow: hidden;
-    margin-top: 10px;
 }
 
 .progress-bar {
-    height: 10px;
-    background: #2575fc;
     width: 0%;
+    height: 10px;
+    background: #6a11cb;
+    border-radius: 5px;
     transition: width 0.5s ease-in-out;
 }
 
-/* Result Container */
-#resultContainer {
+/* Result Box */
+.result-box {
     background: #f9f9f9;
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
     color: #333;
-    width: 50%;
-    margin: auto;
     margin-top: 20px;
-    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#resultContainer h3 {
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: #2575fc;
+.result-box h3 {
+    color: #6a11cb;
 }
 
-#resultList {
-    list-style: none;
+.result-box ul {
+    list-style-type: none;
     padding: 0;
 }
 
-#resultList li {
-    background: #fff;
-    padding: 10px;
+.result-box li {
     margin: 5px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    color: #333;
     font-size: 16px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .upload-box, #resultContainer {
-        width: 90%;
-    }
-
-    .title {
-        font-size: 2rem;
-    }
-
-    .subtitle {
-        font-size: 1rem;
-    }
 }
