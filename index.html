@@ -4,39 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Resume Scanner</title>
-
-    <!-- Link CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2 class="title">Upload Your Resume</h2>
-    <p class="subtitle">Get instant analysis of your resume</p>
+    <div class="container">
+        <h1 class="title">AI Resume Scanner</h1>
+        <p class="subtitle">Upload your resume and let AI analyze it!</p>
 
-    <div class="upload-box">
-        <form id="uploadForm">
-            <label for="fileInput" class="upload-label">Choose File</label>
-            <input type="file" id="fileInput" name="resume" required>
-            <button type="submit">Upload</button>
-        </form>
+        <div class="upload-box">
+            <form id="uploadForm" enctype="multipart/form-data">
+                <label for="resume" class="upload-label">📄 Choose Resume</label>
+                <input type="file" id="resume" name="resume" required>
+                <button type="submit" class="upload-btn">🚀 Upload & Analyze</button>
+            </form>
+        </div>
 
-        <!-- Progress Bar -->
-        <div id="progressContainer" class="d-none">
-            <div class="progress">
-                <div class="progress-bar" style="width: 0%; height: 10px; background: #2575fc;"></div>
-            </div>
+        <div id="progressContainer" class="progress-container d-none">
+            <div class="progress-bar"></div>
+        </div>
+
+        <div id="resultContainer" class="result-box d-none">
+            <h3>📊 Analysis Results</h3>
+            <ul id="resultList"></ul>
         </div>
     </div>
 
-    <!-- Result Section -->
-    <div id="resultContainer" class="d-none">
-        <h3>Analysis Result:</h3>
-        <ul id="resultList"></ul>
-    </div>
-
-    <!-- Include jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Include script.js -->
     <script src="script.js"></script>
 </body>
 </html>
