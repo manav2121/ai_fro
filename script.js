@@ -18,7 +18,7 @@ $(document).ready(function () {
 
         // Upload Resume
         $.ajax({
-            url: "/analyze",
+            url: "https://your-backend-url.com/upload", // Change to your backend API URL
             type: "POST",
             data: formData,
             contentType: false,
@@ -28,10 +28,9 @@ $(document).ready(function () {
                 $("#resultList").empty();
 
                 // Display Analysis Results
-                $("#resultList").append(`<li>🛠 Skills: ${response.skills_detected.join(", ")}</li>`);
-                $("#resultList").append(`<li>📅 Experience: ${response.experience_level}</li>`);
-                $("#resultList").append(`<li>🔠 Grammar Issues: ${response.grammar_issues.length}</li>`);
-                $("#resultList").append(`<li>📊 Readability Score: ${response.readability_score}/10</li>`);
+                $("#resultList").append(`<li>🛠 Skills: ${response.analysis.matched_keywords.join(", ")}</li>`);
+                $("#resultList").append(`<li>📅 Word Count: ${response.analysis.word_count}</li>`);
+                $("#resultList").append(`<li>💯 Match Score: ${response.analysis.keyword_match_score.toFixed(2)}%</li>`);
             },
             error: function () {
                 alert("Error analyzing resume! Please try again.");
