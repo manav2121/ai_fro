@@ -5,28 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Resume Scanner</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1 class="title">AI Resume Scanner</h1>
-    <p class="subtitle">Upload your resume to get insights</p>
+    <div class="container">
+        <h1>AI Resume Scanner</h1>
+        
+        <div class="upload-box" id="uploadBox">
+            <input type="file" id="fileInput" accept=".pdf,.doc,.docx">
+            <p>Drag & drop your resume here or click to upload</p>
+        </div>
 
-    <div class="upload-box">
-        <form id="uploadForm" enctype="multipart/form-data">
-            <label for="resume" class="upload-label">Choose a File</label>
-            <input type="file" id="resume" name="resume" required>
-            <button type="submit">Upload</button>
-        </form>
+        <button id="uploadBtn">Upload & Analyze</button>
+
+        <div id="results" class="hidden">
+            <h2>Resume Analysis</h2>
+            <p><strong>Name:</strong> <span id="name"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Skills:</strong> <span id="skills"></span></p>
+
+            <h2>Job Match Score</h2>
+            <p class="score"><span id="matchScore"></span>% Match</p>
+
+            <h2>Suggestions for Improvement</h2>
+            <ul id="suggestions"></ul>
+        </div>
     </div>
 
-    <div id="progressContainer" class="progress d-none">
-        <div class="progress-bar"></div>
-    </div>
-
-    <div id="resultContainer" class="d-none">
-        <h2>Analysis Results</h2>
-        <ul id="resultList"></ul>
-    </div>
+    <script src="script.js"></script>
 </body>
 </html>
