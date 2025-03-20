@@ -1,37 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Resume Scanner</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>📄 AI Resume Scanner</h1>
-            <p>Upload your resume and get instant insights!</p>
-        </header>
+/* Gradient Background */
+body {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
 
-        <div class="upload-box">
-            <form id="uploadForm" enctype="multipart/form-data">
-                <label for="resume" class="upload-label">📂 Choose a File</label>
-                <input type="file" id="resume" name="resume" required>
-                <button type="submit" class="upload-btn">🚀 Upload & Analyze</button>
-            </form>
-        </div>
+/* Container */
+.container {
+    max-width: 500px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #333;
+    margin: auto;
+}
 
-        <div id="progressContainer" class="progress-container d-none">
-            <div class="progress-bar"></div>
-        </div>
+/* Header */
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #222;
+}
 
-        <div id="resultContainer" class="result-box d-none">
-            <h2>📊 Analysis Results</h2>
-            <ul id="resultList"></ul>
-        </div>
-    </div>
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+/* Upload Box */
+.upload-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+    border: 1px solid #ddd;
+}
+
+.upload-box:hover {
+    transform: scale(1.02);
+}
+
+/* Upload Label */
+.upload-label {
+    display: block;
+    background: #2575fc;
+    color: #fff;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.upload-label:hover {
+    background: #6a11cb;
+}
+
+/* Upload Button */
+.upload-btn {
+    background: #28a745;
+    color: #fff;
+    padding: 12px 18px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.upload-btn:hover {
+    background: #218838;
+}
+
+/* Hide File Input */
+input[type="file"] {
+    display: none;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 10px;
+    background: #007bff;
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Result Box */
+.result-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    color: #333;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.result-box h2 {
+    color: #2575fc;
+    font-size: 1.5rem;
+}
+
+.result-box ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.result-box li {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+}
