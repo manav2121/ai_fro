@@ -1,10 +1,14 @@
+/* Global Styles */
 body {
     background: linear-gradient(to right, #6a11cb, #2575fc);
     color: #fff;
     font-family: 'Arial', sans-serif;
     text-align: center;
+    margin: 0;
+    padding: 20px;
 }
 
+/* Title and Subtitle */
 .title {
     font-size: 2.5rem;
     font-weight: bold;
@@ -14,8 +18,10 @@ body {
 .subtitle {
     font-size: 1.2rem;
     opacity: 0.8;
+    margin-bottom: 20px;
 }
 
+/* Upload Box */
 .upload-box {
     background: #fff;
     padding: 30px;
@@ -24,6 +30,7 @@ body {
     color: #333;
     width: 50%;
     margin: auto;
+    text-align: center;
 }
 
 .upload-label {
@@ -35,20 +42,56 @@ body {
     border-radius: 5px;
     font-size: 18px;
     transition: 0.3s;
+    margin-bottom: 10px;
 }
 
 .upload-label:hover {
     background: #6a11cb;
 }
 
+/* Hide the default file input */
 input[type="file"] {
+    display: none;
+}
+
+/* Upload Button */
+button {
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #6a11cb;
+}
+
+/* Progress Bar */
+#progressContainer {
+    margin-top: 20px;
     display: none;
 }
 
 .progress {
     height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
 }
 
+.progress-bar {
+    height: 10px;
+    background: #2575fc;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Result Container */
 #resultContainer {
     background: #f9f9f9;
     padding: 15px;
@@ -56,4 +99,42 @@ input[type="file"] {
     color: #333;
     width: 50%;
     margin: auto;
+    margin-top: 20px;
+    display: none;
+}
+
+#resultContainer h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #2575fc;
+}
+
+#resultList {
+    list-style: none;
+    padding: 0;
+}
+
+#resultList li {
+    background: #fff;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: #333;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .upload-box, #resultContainer {
+        width: 90%;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
 }
