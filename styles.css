@@ -1,101 +1,59 @@
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background: #f8f9fa;
-    color: #333;
+    background-color: #f4f4f4;
     text-align: center;
-    margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
-/* Container */
 .container {
     max-width: 500px;
-    margin: 50px auto;
-    background: #fff;
+    margin: auto;
+    background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Title */
 h1 {
     font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-/* Upload Section */
-.upload-section {
-    margin-top: 20px;
-}
-
-/* File Input */
-input[type="file"] {
-    display: none;
-}
-
-/* Upload Button */
-.upload-btn {
-    display: inline-block;
-    background: #007bff;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
+.upload-box {
+    border: 2px dashed #ccc;
+    padding: 30px;
     cursor: pointer;
-    margin-bottom: 5px;
-}
-
-.upload-btn:hover {
-    background: #0056b3;
-}
-
-/* File Name Display */
-#fileName {
-    display: block;
-    font-size: 14px;
     margin-bottom: 10px;
 }
 
-/* Submit Button */
+.upload-box p {
+    color: #888;
+}
+
 button {
-    background: #28a745;
-    color: #fff;
+    background: #007bff;
+    color: white;
     padding: 10px 15px;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 button:hover {
-    background: #218838;
+    background: #0056b3;
 }
 
-/* Progress Bar */
-.progress {
-    width: 100%;
-    background: #eee;
-    border-radius: 5px;
-    margin-top: 15px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    width: 0%;
-    height: 10px;
-    background: #007bff;
-    transition: width 0.5s ease-in-out;
-}
-
-/* Results */
-#resultContainer {
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 20px;
-    text-align: left;
-}
-
-/* Hide elements initially */
 .hidden {
     display: none;
+}
+
+.score {
+    font-size: 20px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+ul {
+    text-align: left;
+    margin-top: 10px;
 }
