@@ -5,7 +5,7 @@ $(document).ready(function () {
         let formData = new FormData(this);
         $("#progressContainer").removeClass("d-none");
 
-        // Simulate Progress
+        // Simulate Progress Animation
         let progressBar = $(".progress-bar");
         progressBar.css("width", "0%");
         let progress = 0;
@@ -16,9 +16,9 @@ $(document).ready(function () {
             if (progress >= 100) clearInterval(interval);
         }, 500);
 
-        // Upload Resume
+        // Upload and Analyze Resume
         $.ajax({
-            url: "https://ai-resume-checker-o2jh.onrender.com/upload", // Change to your backend API URL
+            url: "https://ai-resume-checker-o2jh.onrender.com/upload",  // Change this to your backend URL
             type: "POST",
             data: formData,
             contentType: false,
@@ -28,9 +28,10 @@ $(document).ready(function () {
                 $("#resultList").empty();
 
                 // Display Analysis Results
-                $("#resultList").append(`<li>🛠 Skills: ${response.analysis.matched_keywords.join(", ")}</li>`);
-                $("#resultList").append(`<li>📅 Word Count: ${response.analysis.word_count}</li>`);
-                $("#resultList").append(`<li>💯 Match Score: ${response.analysis.keyword_match_score.toFixed(2)}%</li>`);
+                $("#resultList").append(`<li>🛠 Skills: ${response.skills_detected.join(", ")}</li>`);
+                $("#resultList").append(`<li>📅 Experience: ${response.experience_level}</li>`);
+                $("#resultList").append(`<li>🔠 Grammar Issues: ${response.grammar_issues.length}</li>`);
+                $("#resultList").append(`<li>📊 Readability Score: ${response.readability_score}/10</li>`);
             },
             error: function () {
                 alert("Error analyzing resume! Please try again.");
