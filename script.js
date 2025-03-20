@@ -1,52 +1,44 @@
-$(document).ready(function () {
-    // Show selected file name
-    $("#resume").change(function () {
-        let file = this.files[0];
-        if (file) {
-            $("#fileName").text(file.name);
-        } else {
-            $("#fileName").text("No file selected");
-        }
-    });
+document.getElementById("uploadBox").addEventListener("click", () => {
+    document.getElementById("fileInput").click();
+});
 
-    // Handle Form Submission
-    $("#uploadForm").submit(function (event) {
-        event.preventDefault();
+document.getElementById("uploadBtn").addEventListener("click", async () => {
+    const fileInput = document.getElementById("fileInput").files[0];
 
-        let formData = new FormData(this);
-        $("#progressContainer").removeClass("hidden");
+    if (!fileInput) {
+        alert("Please upload a resume!");
+        return;
+    }
 
-        // Simulate Progress
-        let progressBar = $(".progress-bar");
-        progressBar.css("width", "0%");
-        let progress = 0;
-        let interval = setInterval(function () {
-            progress += 25;
-            progressBar.css("width", progress + "%");
+    const formData = new FormData();
+    formData.append("resume", fileInput);
 
-            if (progress >= 100) clearInterval(interval);
-        }, 500);
-
-        // Upload & Analyze
-        $.ajax({
-            url: "https://ai-resume-checker-o2jh.onrender.com/upload", // Change this to your backend URL
-            type: "POST",
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function (response) {
-                $("#resultContainer").removeClass("hidden");
-                $("#resultList").empty();
-
-                // Display Results
-                $("#resultList").append(`<li><b>Skills:</b> ${response.skills_detected.join(", ")}</li>`);
-                $("#resultList").append(`<li><b>Experience:</b> ${response.experience_level}</li>`);
-                $("#resultList").append(`<li><b>Grammar Issues:</b> ${response.grammar_issues.length}</li>`);
-                $("#resultList").append(`<li><b>Readability Score:</b> ${response.readability_score}/10</li>`);
-            },
-            error: function () {
-                alert("Error analyzing resume! Please try again.");
-            },
+    try {
+        // Send to backend API (replace with your actual API URL)
+        const response = await fetch("https://ai-resume-checker-o2jh.onrender.com/upload", {
+            method: "POST",
+            body: formData,
         });
-    });
+
+        const data = await response.json();
+
+        // Update UI with results
+        document.getElementById("name").innerText = data.name || "N/A";
+        document.getElementById("email").innerText = data.email || "N/A";
+        document.getElementById("skills").innerText = data.skills ? data.skills.join(", ") : "N/A";
+        document.getElementById("matchScore").innerText = data.matchScore || "0";
+        
+        const suggestionsList = document.getElementById("suggestions");
+        suggestionsList.innerHTML = "";
+        (data.suggestions || []).forEach(suggestion => {
+            const li = document.createElement("li");
+            li.innerText = suggestion;
+            suggestionsList.appendChild(li);
+        });
+
+        document.getElementById("results").classList.remove("hidden");
+    } catch (error) {
+        console.error("Error uploading resume:", error);
+        alert("Error analyzing resume. Please try again.");
+    }
 });
