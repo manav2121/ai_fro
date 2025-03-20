@@ -18,7 +18,7 @@ $(document).ready(function () {
 
         // Upload and Analyze Resume
         $.ajax({
-            url: "https://ai-resume-checker-o2jh.onrender.com/upload", // Change this
+            url: "https://your-backend-url.com/upload", // Change this
             type: "POST",
             data: formData,
             contentType: false,
