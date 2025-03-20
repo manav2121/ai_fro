@@ -18,7 +18,7 @@ $(document).ready(function () {
 
         // Upload Resume
         $.ajax({
-            url: "https://your-backend-url.com/upload", // Change to your backend API URL
+            url: "https://ai-resume-checker-o2jh.onrender.com/upload", // Change to your backend API URL
             type: "POST",
             data: formData,
             contentType: false,
